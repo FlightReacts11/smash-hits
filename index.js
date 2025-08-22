@@ -25,8 +25,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /*Image carousel*/
 
-let carouselItems = document.querySelectorAll(".carousel-item")
+  document.addEventListener('DOMContentLoaded', () => {
+            
+            const carouselItems = document.querySelectorAll(".carousel-item");
 
-carouselItems.forEach(item => {
-    
-})
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                carouselItems.forEach(item => {
+                    item.classList.remove('visible');
+                });
+
+                carouselItems[index].classList.add('visible');
+            }
+            
+             
+            function showNextSlide() {
+                currentIndex++;
+                if (currentIndex >= carouselItems.length) {
+                    currentIndex = 0; 
+                }
+                showSlide(currentIndex);
+            }
+            
+            function startAutoplay() {
+                setInterval(showNextSlide, 4500); 
+            }
+
+           
+            if (carouselItems.length > 0) {  
+                showSlide(currentIndex); 
+                startAutoplay();
+            }
+        });

@@ -15,10 +15,24 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power2.out"
     });
 
+    tl.fromTo(".header-logo", {
+        height: 110,
+        width: "auto",
+        rotation: 0,
+
+    },
+    { height: 110,
+      rotation: 360,
+      duration: 1
+
+    }
+);
+
    
     tl.from(".heading", { y: 20, opacity: 0, duration: 1, ease: "power2.out" }, "-=0.8");
 
     tl.from(".gsap-enhancement", {fontSize: 40, duration: 0.75, ease: "power2.out"}, "-=0.2");
+
 });
 
 

@@ -62,16 +62,67 @@ span {
 
 }
 
+
+/*Search bar*/
 .search-section {
     display: flex;
     justify-content: center;
-    margin-top: 12rem;
+    margin-top: 8rem;
     gap: 2vw
 }
 
 .search-box {
-    border-radius: 6px;
-    height: 30px;
+    border-radius: 10px;
+    height: 45px;
+    width: 350px;
+}
+
+.search-button {
+    width: 150px;
+    border-radius: 10px;
+}
+
+.search-button:hover {
+    cursor: pointer;
+}
+
+.search-box::placeholder {
+    padding-left: 8px;
+}
+
+/*Image Carousel*/
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 55px;
+}
+
+.carousel-item {
+    display: none;
+}
+
+.carousel-item.visible {
+    display: block;
+
+}
+
+/*attribution*/ 
+.attribution-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 220px;
+}
+
+.tmdb-logo {
+    height: 100px;
+    width: 100px;
+}
+
+h2 {
+    margin-top: 25px;
 }
 
 /*Media Queries*/

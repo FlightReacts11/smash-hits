@@ -20,3 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tl.from(".gsap-enhancement", {fontSize: 40, duration: 0.75, ease: "power2.out"}, "-=0.2");
 });
+
+
+
+/*Image carousel*/
+
+let carouselItems = document.querySelectorAll(".carousel-item")
+
+carouselItems.forEach(item => {
+    
+})

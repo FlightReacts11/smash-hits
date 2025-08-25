@@ -124,6 +124,71 @@ span {
             height: 100%;
             object-fit: cover;
         }
+        
+
+
+/*API on search*/
+#results-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-rows: 3fr 3fr;
+    place-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.movie-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    width: 260px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 10px;
+}
+
+.movie-card img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.movie-card h3 {
+    font-size: 16px;
+    padding: 10px 5px;
+    min-height: 48px; /* Ensures titles of different lengths align well */
+}
+
+.movie-card p {
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.overview {
+    font-size: 12px;
+    text-align: center;
+}
+
+.overview-div {
+    display: none;
+    padding-top: 10px;
+    line-height: 22px
+}
+
+.overview-div.visible {
+    display: block
+}
+
+.description-div {
+    color: var(--pink);
+    text-decoration: underline;
+    padding-top: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: Rubik, sans-serif;
+    font-weight: 300px;
+}
 
 /*attribution*/ 
 .attribution-section {
@@ -144,11 +209,29 @@ h2 {
     font-size: 13px;
 }
 
+
+
 /*Media Queries*/
 
 @media only screen and (max-width: 768px) {
     header {
         justify-content: center;
         flex-direction: column;
+    }
+    .search-section {
+        padding-top: 80px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .movie-card {
+        width: 200px;
+    }
+
+}
+
+@media only screen and (min-width: 850px) {
+      #results-section {
+        grid-template-columns: repeat(3, 1fr);
     }
 }

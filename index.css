@@ -101,7 +101,7 @@ span {
             aspect-ratio: 16 / 9;
             max-width: 800px;
             position: relative;
-            margin: 50px auto;
+            margin: 10px auto;
         }
     
         .carousel-item {
@@ -157,13 +157,14 @@ span {
 .movie-card h3 {
     font-size: 16px;
     padding: 10px 5px;
-    min-height: 48px; /* Ensures titles of different lengths align well */
+    min-height: 25px; /* Ensures titles of different lengths align well */
 }
 
 .movie-card p {
     font-size: 14px;
     color: var(--gray);
 }
+
 
 .overview {
     font-size: 12px;
@@ -173,7 +174,7 @@ span {
 .overview-div {
     display: none;
     padding-top: 10px;
-    line-height: 22px
+    line-height: 22px;
 }
 
 .overview-div.visible {
@@ -188,6 +189,10 @@ span {
     font-size: 18px;
     font-family: Rubik, sans-serif;
     font-weight: 300px;
+}
+
+.user-score {
+    color: var(--pink);
 }
 
 /*attribution*/ 
@@ -210,7 +215,6 @@ h2 {
 }
 
 
-
 /*Media Queries*/
 
 @media only screen and (max-width: 768px) {
@@ -219,7 +223,7 @@ h2 {
         flex-direction: column;
     }
     .search-section {
-        padding-top: 80px;
+        padding-top: 50px;
     }
 }
 

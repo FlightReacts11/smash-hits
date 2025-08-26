@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const tl = gsap.timeline();
     tl.from(".header-logo", { y: -50, opacity: 0, duration: 1.2, ease: "power2.out" });
     tl.fromTo(".header-logo", { height: 110, width: "auto", rotation: 0 }, { height: 110, rotation: 360, duration: 1 });
-    tl.from(".heading", { y: 20, opacity: 0, duration: 1, ease: "power2.out" }, "-=0.8");
+    tl.from(".heading", { y: 20, opacity: 0, duration: 1, ease: "power2.out" }, "-=0.5");
     tl.from(".gsap-enhancement", { fontSize: 40, duration: 0.75, ease: "power2.out" }, "-=0.2");
+    tl.fromTo(".overview-div", {height: 0, width: 0, ease:"power2.out"}, {height: "auto", width: "auto", duration: 1});
 
     
 
@@ -101,10 +102,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const title = item.title || item.name;
                 const releaseDate = item.release_date || item.first_air_date || 'N/A';
                 const overview = item.overview;
+                const userScore = item.vote_average;
+                const numberOfVotes = item.vote_count;
 
                 movieCard.innerHTML = `
                     <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${title}">
                     <h3>${title}</h3>
+                    <p class="p-user">Rating</p>
+                    <h3 class="user-score">${userScore}/10</h3>
+                    <p class="p-user">Number Of Votes</p>
+                    <h3 class="user-score">${numberOfVotes}</h3>
                     <p>Released: ${releaseDate}</p>
                     <div class="description-div"
                     <p class="description">Click For Description</p>
@@ -112,6 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="overview-div"
                     <p class="overview">${overview}</p> 
                     </div>
+
+
                 `;
                 movieCard.addEventListener('click', () => {
                     const overviewElement = movieCard.querySelector('.overview-div');
@@ -122,3 +131,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+

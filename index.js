@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3>${title}</h3>
                     <p class="p-user">Rating</p>
                     <h3 class="user-score">${userScore}/10</h3>
-                    <p class="p-user">Number Of Votes</p>
+                    <p class="p-user">Number Of Reviews</p>
                     <h3 class="user-score">${numberOfVotes}</h3>
                     <p>Released: ${releaseDate}</p>
                     <div class="description-div"

@@ -225,13 +225,16 @@ h2 {
     .search-section {
         padding-top: 50px;
     }
-}
-
-@media only screen and (max-width: 850px) {
-    .movie-card {
-        width: 200px;
+    #results-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;                             
     }
 
+    .movie-card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media only screen and (min-width: 850px) {

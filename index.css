@@ -130,22 +130,25 @@ span {
 /*API on search*/
 #results-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     grid-template-rows: 3fr 3fr;
     place-items: center;
     gap: 20px;
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .movie-card {
     background-color: var(--white);
     border-radius: 10px;
-    width: 260px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     text-align: center;
     font-family: 'Rubik', sans-serif;
     padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 .movie-card img {
@@ -188,7 +191,7 @@ span {
     cursor: pointer;
     font-size: 18px;
     font-family: Rubik, sans-serif;
-    font-weight: 300px;
+    font-weight: 300;
 }
 
 .user-score {
@@ -224,21 +227,5 @@ h2 {
     }
     .search-section {
         padding-top: 50px;
-    }
-    #results-section {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;                             
-    }
-
-    .movie-card {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-@media only screen and (min-width: 850px) {
-      #results-section {
-        grid-template-columns: repeat(3, 1fr);
     }
 }

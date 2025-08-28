@@ -160,7 +160,7 @@ span {
 .movie-card h3 {
     font-size: 16px;
     padding: 10px 5px;
-    min-height: 25px; /* Ensures titles of different lengths align well */
+    min-height: 25px; 
 }
 
 .movie-card p {
@@ -196,6 +196,51 @@ span {
 
 .user-score {
     color: var(--pink);
+}
+
+/*Trailer Player*/
+
+.player-container {
+   display: none;
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.6);
+   top: 0;
+   left: 0;
+   z-index: 1000
+}
+
+.trailer {
+    position: relative;
+    width: 90%;
+    max-width: 880px;
+    margin: 5% auto;
+}
+
+.trailer-player-container {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+    background-color: black;
+}
+
+.trailer-player-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.trailer-button {  
+    font-size: 40px;
+    color: var(--coral);
+}
+
+.play-trailer-button {
+    height: 50px;
+    width: 50px;
 }
 
 /*attribution*/ 

@@ -57,6 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultsSection = document.getElementById('results-section');
     const carouselSection = document.getElementById('carousel-section');
 
+    const playerContainer = document.getElementById('id-player');
+    const closeTrailerButton = playerContainer.querySelector(".trailer-button");
+    const moviePlayer = playerContainer.querySelector(".trailer-player-container");
+
+
+        closeTrailerButton.addEventListener('click', () => {
+                    playerContainer.style.display = 'none';
+                    moviePlayer.innerHTML = '';
+                })
+
 
 
     // Add a click event listener to the search button
@@ -106,7 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const numberOfVotes = item.vote_count;
 
                 movieCard.innerHTML = `
+                <div class="poster-container">
                     <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${title}">
+                    <button class="play-trailer-button" data-id="${item.id}" data-type="${item.media_type}">▶ Play Trailer</button>
+                    </div>
                     <h3>${title}</h3>
                     <p class="p-user">Rating</p>
                     <h3 class="user-score">${userScore}/10</h3>
@@ -127,8 +140,33 @@ document.addEventListener('DOMContentLoaded', () => {
                     overviewElement.classList.toggle('visible');
                 })
                 resultsSection.appendChild(movieCard);
-            }
-        });
+                
+                const playButton = movieCard.querySelector('.play-trailer-button');
+                 playButton.addEventListener('click', async (event) => {
+                     event.stopPropagation(); 
+                    const id = playButton.getAttribute('data-id');
+                    const type = playButton.getAttribute('data-type');
+
+                    const trailerUrl = `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${API_KEY}`;
+                    try {
+                    const videoResponse = await fetch(trailerUrl);
+                    const videoData = await videoResponse.json();
+                    const officialTrailer = videoData.results.find(vid => vid.site === 'YouTube' && vid.type === 'Trailer');
+
+                    if (officialTrailer) {
+                          moviePlayer.innerHTML = `
+                            <iframe src="https://www.youtube.com/embed/${officialTrailer.key}?autoplay=1" 
+                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        `;
+                          playerContainer.style.display = 'block';
+                    } else {
+                         alert('No official trailer found for this title.');
+                    }
+                    } catch (error) {
+                        console.error("Error fetching trailer:", error);
+                    }
+                 });
+        }
+    });
     }
 });
-
